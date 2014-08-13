@@ -88,7 +88,7 @@ $('.patientAdd').click(function() {
 
 	var Patient = Parse.Object.extend("Patient");
 	var query = new Parse.Query(Patient);
-	query.get("xwas4Iqwgi", {
+	query.get("tb97CQhvAC", {
 	  success: function(patient) {
 		var user = Parse.User.current();
 		var relation = user.relation("Patients");
