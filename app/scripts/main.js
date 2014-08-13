@@ -83,41 +83,6 @@ relation.query().find({
     }
 });
 
-///////////////Doctor Name View
-
-var DoctorName = Parse.View.extend({
- 
-    className: 'DoctorName',
-
-    collection: 'DoctorNameCollection',
-
- 
-    DoctorNameTemplate: _.template($('.DoctorName').text()),
- 
- 
-    initialize: function(){
-        // console.log(this.model)
-        $('.doctorName').append(this.el);
-        this.render();
-
-    },
- 
-    render: function(){
-        var renderedTemplate = this.DoctorNameTemplate(this.model);
-        this.$el.html(renderedTemplate);
-    },
-
-});
-        
-var user = Parse.User.current();
-var relation = user.relation("Patients");
-relation.query().find({
-    success: function(stadiums) {
-        stadiums.forEach(function(patient){
-            new PatientsView({model: patient.attributes})
-        });
-    }
-});
 
 $('.patientAdd').click(function() {
 
